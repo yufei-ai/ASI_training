@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>Bankruptcy Prediction</title>
+       <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+       <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-theme.min.css') }}">
+       <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+ 
+    </head>
+    <body>
+
+<div class="container">
+ 
+
+  <h2>Bankruptcy Prediction</h2>
+  <form action="" method="post" role="form">
+    <div class="form-group">
+
+    <table style="width:50%">
+      <tr>
+        <td><label for="competitiveness">Competitiveness:</label></td>
+        <td>
+        <input type="radio" name="competitiveness" id="o1" value="A" checked> Average
+        <input type="radio" name="competitiveness" id="o2" value="P"> Positive
+        <input type="radio" name="competitiveness" id="o3" value="N"> Negative
+        </td>
+      </tr>
+      <tr>
+        <td><label for="credibility">Credibility:</label></td>
+        <td>
+        <input type="radio" name="credibility" id="o1" value="A" checked> Average
+        <input type="radio" name="credibility" id="o2" value="P"> Positive
+        <input type="radio" name="credibility" id="o3" value="N"> Negative
+        </td>
+      </tr>
+      <tr>
+        <td><label for="financial_flexibility">Financial flexibility:</label></td>
+        <td>
+        <input type="radio" name="financial_flexibility" id="o1" value="A" checked> Average
+        <input type="radio" name="financial_flexibility" id="o2" value="P"> Positive
+        <input type="radio" name="financial_flexibility" id="o3" value="N"> Negative
+        </td>
+      </tr>
+      <tr>
+        <td><label for="industrial_risk">Industrial risk:</label></td>
+        <td>
+        <input type="radio" name="industrial_risk" id="o1" value="A" checked> Average
+        <input type="radio" name="industrial_risk" id="o2" value="P"> Positive
+        <input type="radio" name="industrial_risk" id="o3" value="N"> Negative
+        </td>
+      </tr>
+      <tr>
+        <td><label for="management_risk">Management risk:</label></td>
+        <td>
+        <input type="radio" name="management_risk" id="o1" value="A" checked> Average
+        <input type="radio" name="management_risk" id="o2" value="P"> Positive
+        <input type="radio" name="management_risk" id="o3" value="N"> Negative
+        </td>
+      </tr>
+      <tr>
+        <td><label for="operating_risk">Operating risk:</label></td>
+        <td>
+        <input type="radio" name="operating_risk" id="o1" value="A" checked> Average
+        <input type="radio" name="operating_risk" id="o2" value="P"> Positive
+        <input type="radio" name="operating_risk" id="o3" value="N"> Negative
+        </td>
+      </tr>
+
+    </table>
+
+    </div>
+    <button type="submit" class="btn btn-success">Predict</button>
+  </form>
+
+  <br>
+        {% with messages = get_flashed_messages() %}
+
+        {% for message in messages %}
+            {% if message: %}
+                <div class="alert alert-danger">
+                <strong>Will go bust. Do NOT invest! </strong>
+                </div>
+            {% endif %}
+ 
+            {% if not message: %}
+                <div class="alert alert-info">
+                <strong>Probably a good investment ... </strong>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% endwith %}
+
+</div>
+<br>
+</body>
+</html>
